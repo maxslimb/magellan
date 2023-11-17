@@ -1,5 +1,6 @@
 package com.wealthfront.magellan.sample.migration.tide
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +28,16 @@ class DogListAdapter(
   override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
     viewHolder.textView.text = dataSet[position]
     viewHolder.itemView.setOnClickListener {
-      onDogSelected(dataSet[position])
+      if(dataSet[position] == "View Random dog breed?")
+      {
+        val randomBreed = dataSet.random()
+        Log.d("TAG", "onBindViewHolder: $randomBreed")
+        onDogSelected(randomBreed)
+      }
+      else{
+        onDogSelected(dataSet[position])
+      }
+
     }
   }
 

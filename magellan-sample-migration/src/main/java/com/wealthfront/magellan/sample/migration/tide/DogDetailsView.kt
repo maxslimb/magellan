@@ -22,4 +22,7 @@ class DogDetailsView(context: Context) : BaseScreenView<DogDetailsScreen>(contex
       .load(dogUrl)
       .into(viewBinding.dogImage)
   }
+  fun setBreedName(name: String) {
+    viewBinding.BreedName.text = name
+  }
 }
