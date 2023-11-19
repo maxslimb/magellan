@@ -1,7 +1,6 @@
 package com.wealthfront.magellan.sample.migration.tide
 
 import android.content.Context
-import android.util.Log
 import android.widget.Toast
 import com.wealthfront.magellan.OpenForMocking
 import com.wealthfront.magellan.Screen
@@ -37,7 +36,6 @@ class DogDetailsScreen @AssistedInject constructor(
     toolbarHelper.setMenuColor(R.color.water)
 
     shownScope.launch {
-      Log.d("TAG123", "onShow: $breed")
       val imageResponse = runCatching { api.getRandomImageForBreed(breed) }
       imageResponse.onSuccess { image ->
         view!!.setDogPic(image.message)

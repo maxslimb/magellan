@@ -1,6 +1,5 @@
 package com.wealthfront.magellan.sample.migration.tide
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,9 +29,8 @@ class DogListAdapter(
     viewHolder.itemView.setOnClickListener {
       if(dataSet[position] == "View Random dog breed?")
       {
-        var randomBreed = dataSet.random()
-        if(randomBreed=="View Random dog breed?")  //Checking if it is not equal to the text
-          randomBreed = dataSet.random()           // Choosing random breed
+        val filteredDataSet = dataSet.filter { it != "View Random dog breed?" }
+        val randomBreed = filteredDataSet.random()
         onDogSelected(randomBreed)
       }
       else{

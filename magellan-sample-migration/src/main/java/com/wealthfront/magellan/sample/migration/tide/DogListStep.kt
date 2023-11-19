@@ -1,7 +1,6 @@
 package com.wealthfront.magellan.sample.migration.tide
 
 import android.content.Context
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -39,7 +38,6 @@ class DogListStep @AssistedInject constructor(
     shownScope.launch {
       val dogBreedsResponse = runCatching { api.getAllBreeds() }
       dogBreedsResponse.onSuccess { dogBreeds ->
-        Log.d("TAG3", "onShow: ${dogBreeds.toString()}")
         val mutableList = dogBreeds.message.keys.toMutableList()
         mutableList.add(0, "View Random dog breed?")   //Adding View Random Breed element
         (binding.dogItems.adapter as DogListAdapter).dataSet = mutableList.toList()

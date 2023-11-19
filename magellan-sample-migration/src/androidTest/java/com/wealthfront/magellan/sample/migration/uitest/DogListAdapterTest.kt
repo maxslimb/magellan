@@ -1,17 +1,12 @@
 package com.wealthfront.magellan.sample.migration.uitest
 
 import android.app.Application
-import android.view.View
-import android.widget.ImageView
-import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.core.app.launchActivity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -24,14 +19,10 @@ import com.wealthfront.magellan.sample.migration.api.DogApi
 import com.wealthfront.magellan.sample.migration.api.DogBreedsResponse
 import com.wealthfront.magellan.sample.migration.api.DogImageResponse
 import com.wealthfront.magellan.sample.migration.coWhen
-import com.wealthfront.magellan.sample.migration.tide.DogListAdapter
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.Description
-import org.hamcrest.TypeSafeMatcher
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.hamcrest.Matcher
 import javax.inject.Inject
 
 class DogListAdapterTest {
