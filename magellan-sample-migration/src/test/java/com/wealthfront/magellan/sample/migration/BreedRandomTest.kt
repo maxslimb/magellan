@@ -50,10 +50,10 @@ class BreedRandomTest : Step<DashboardBinding>(DashboardBinding::inflate){
     val dogBreeds = dogApi.getAllBreeds()
     val mutableList = dogBreeds.message.keys.toMutableList()
     mutableList.add(0, "View Random dog breed?")
-    assertEquals(mutableList.first(), "View Random dog breed?" ) //Test the element in the list
+    assertEquals(mutableList.first(), "View Random dog breed?" )    //Test the element in the list
     (binding.dogItems.adapter as DogListAdapter).dataSet = mutableList.toList()
     val dataset = (binding.dogItems.adapter as DogListAdapter).dataSet
-    assertEquals(4, dataset.size) // 3 breeds + "View Random dog breed?"
+    assertEquals(4, dataset.size)                                 // 3 breeds + "View Random dog breed?"
     assertEquals("View Random dog breed?", dataset.first())
   }
 }

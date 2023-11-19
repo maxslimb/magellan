@@ -27,10 +27,10 @@ class DogListAdapter(
   override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
     viewHolder.textView.text = dataSet[position]
     viewHolder.itemView.setOnClickListener {
-      if(dataSet[position] == "View Random dog breed?")
+      if(dataSet[position] == "View Random dog breed?")                           //Checking if the element is "View Random dog breed?"
       {
-        val filteredDataSet = dataSet.filter { it != "View Random dog breed?" }
-        val randomBreed = filteredDataSet.random()
+        val filteredDataSet = dataSet.filter { it != "View Random dog breed?" }   //Filtering out the element "View Random dog breed?"
+        val randomBreed = filteredDataSet.random()                                //Choosing a Random Breed
         onDogSelected(randomBreed)
       }
       else{

@@ -39,7 +39,7 @@ class DogDetailsScreen @AssistedInject constructor(
       val imageResponse = runCatching { api.getRandomImageForBreed(breed) }
       imageResponse.onSuccess { image ->
         view!!.setDogPic(image.message)
-        view!!.setBreedName(breed)    //Setting BreedName on the TextView
+        view!!.setBreedName(breed)    //Setting BreedName to the TextView
       }
       imageResponse.onFailure { throwable ->
         Toast.makeText(context, throwable.message, Toast.LENGTH_SHORT).show()
