@@ -30,8 +30,9 @@ class DogListAdapter(
     viewHolder.itemView.setOnClickListener {
       if(dataSet[position] == "View Random dog breed?")
       {
-        val randomBreed = dataSet.random()
-        Log.d("TAG", "onBindViewHolder: $randomBreed")
+        var randomBreed = dataSet.random()
+        if(randomBreed=="View Random dog breed?")  //Checking if it is not equal to the text
+          randomBreed = dataSet.random()           // Choosing random breed
         onDogSelected(randomBreed)
       }
       else{

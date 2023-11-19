@@ -56,5 +56,6 @@ class DogDetailsScreenTest {
     screen.transitionToState(LifecycleState.Shown(activity))
     shadowOf(getMainLooper()).idle()
     verify { dogDetailsView.setDogPic("image-url") }
+    verify { dogDetailsView.setBreedName("robotic") } //verify that setBreedName is called with the correct breed name robotics
   }
 }

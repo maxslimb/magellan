@@ -28,7 +28,7 @@ class DogListStep @AssistedInject constructor(
   @Assisted private val goToDogDetails: (name: String) -> Unit
 ) : Step<DashboardBinding>(DashboardBinding::inflate) {
 
-  override fun onShow(context: Context, binding: DashboardBinding) {
+  public override fun onShow(context: Context, binding: DashboardBinding) {
     toolbarHelper.setTitle(context.getText(R.string.app_name))
     binding.dogItems.layoutManager = LinearLayoutManager(context, VERTICAL, false)
     binding.dogItems.adapter = DogListAdapter(emptyList(), goToDogDetails)
@@ -39,8 +39,9 @@ class DogListStep @AssistedInject constructor(
     shownScope.launch {
       val dogBreedsResponse = runCatching { api.getAllBreeds() }
       dogBreedsResponse.onSuccess { dogBreeds ->
+        Log.d("TAG3", "onShow: ${dogBreeds.toString()}")
         val mutableList = dogBreeds.message.keys.toMutableList()
-        mutableList.add(0, "View Random dog breed?")
+        mutableList.add(0, "View Random dog breed?")   //Adding View Random Breed element
         (binding.dogItems.adapter as DogListAdapter).dataSet = mutableList.toList()
         (binding.dogItems.adapter as DogListAdapter).notifyDataSetChanged()
       }

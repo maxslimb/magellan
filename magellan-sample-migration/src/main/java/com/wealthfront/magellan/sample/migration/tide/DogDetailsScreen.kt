@@ -37,10 +37,11 @@ class DogDetailsScreen @AssistedInject constructor(
     toolbarHelper.setMenuColor(R.color.water)
 
     shownScope.launch {
+      Log.d("TAG123", "onShow: $breed")
       val imageResponse = runCatching { api.getRandomImageForBreed(breed) }
       imageResponse.onSuccess { image ->
         view!!.setDogPic(image.message)
-        view!!.setBreedName(breed)
+        view!!.setBreedName(breed)    //Setting BreedName on the TextView
       }
       imageResponse.onFailure { throwable ->
         Toast.makeText(context, throwable.message, Toast.LENGTH_SHORT).show()

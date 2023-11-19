@@ -1,5 +1,6 @@
 package com.wealthfront.magellan.sample.migration
 
+import com.wealthfront.magellan.sample.migration.uitest.DogListAdapterTest
 import com.wealthfront.magellan.sample.migration.uitest.NavigationTest
 import dagger.Component
 import javax.inject.Singleton
@@ -9,4 +10,7 @@ import javax.inject.Singleton
 interface TestAppComponent : AppComponent {
 
   fun inject(test: NavigationTest)
+
+  fun inject(test: DogListAdapterTest)
+
 }
